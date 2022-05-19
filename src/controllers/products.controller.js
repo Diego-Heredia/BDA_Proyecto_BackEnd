@@ -74,27 +74,54 @@ export const getCompras = async (req,res)=> {
 
 export const createNewProduct = async (req,res)=>{
 
-    const {Name,Description} =req.body;
-    let {Quantity} = req.body;
+    const {TipoProducto,Bodega,Codigo,FormaVenta,Costo,Precio,Nacionalidad,Calidad,Perecedero} =req.body;
     
-    if(Name == null ||Description == null){
-        return res.status(400).json({msg: 'Bad request!! Please fill all fields!!'})
-    }
-    if(Quantity == null) Quantity = 0;
+    
+    // if(Name == null ||Description == null){
+    //     return res.status(400).json({msg: 'Bad request!! Please fill all fields!!'})
+    // }
+    // if(Quantity == null) Quantity = 0;
     try {
         const pool =await getConnection()
         pool.request()
-        .input('name',sql.VarChar,Name)
-        .input('description',sql.Text,Description)
-        .input('quantity',sql.Int,Quantity)
+        .input('TipoProducto',sql.VarChar,TipoProducto)
+        .input('Bodega',sql.VarChar,Bodega)
+        .input('Codigo',sql.VarChar,Codigo)
+        .input('FormaVenta',sql.VarChar,FormaVenta)
+        .input('Costo',sql.Money,Costo)
+        .input('Precio',sql.Money,Precio)
+        .input('Nacionalidad',sql.VarChar,Nacionalidad)
+        .input('Calidad',sql.VarChar,Calidad)
+        .input('Perecedero',sql.Bit,Perecedero)
         .query(queries.addNewProduct)
-        console.log(Name, Description, Quantity);
-        res.json({Name,Description,Quantity})
+        // console.log(Name, Description, Quantity);
+        res.json({TipoProducto,Bodega,Codigo,FormaVenta,Costo,Precio,Nacionalidad,Calidad,Perecedero})
         
     } catch (error) {
         res.status(500);
         res.send(error.message);
     }
+    // const {Name,Description} =req.body;
+    // let {Quantity} = req.body;
+    
+    // if(Name == null ||Description == null){
+    //     return res.status(400).json({msg: 'Bad request!! Please fill all fields!!'})
+    // }
+    // if(Quantity == null) Quantity = 0;
+    // try {
+    //     const pool =await getConnection()
+    //     pool.request()
+    //     .input('name',sql.VarChar,Name)
+    //     .input('description',sql.Text,Description)
+    //     .input('quantity',sql.Int,Quantity)
+    //     .query(queries.addNewProduct)
+    //     console.log(Name, Description, Quantity);
+    //     res.json({Name,Description,Quantity})
+        
+    // } catch (error) {
+    //     res.status(500);
+    //     res.send(error.message);
+    // }
 }
 
 export const getProductById = async (req,res)=>{

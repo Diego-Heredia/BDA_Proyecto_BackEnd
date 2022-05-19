@@ -15,7 +15,7 @@ router.get('/compras',getCompras)
 
 router.get('/products/todo/count',getTotalEverything)
 
-// router.post('/products',createNewProduct)
+router.post('/products',createNewProduct)
 
 // router.get('/products/count',getTotalProducts)
 

@@ -12,10 +12,37 @@ Content-Type: application/json
     "Name": "Prueba",
     "Description" : "Microfono Samsung"
 }
+###     Create new product
+
+POST {{api}}
+Content-Type: application/json
+
+{
+    "TipoProducto": "2",
+        "Bodega": "2",
+        "Codigo": "Mordisko",
+        "FormaVenta": "Directa",
+        "Costo": 450.00,
+        "Precio": 17.00,
+        "Nacionalidad": "Mexico",
+        "Calidad": "5",
+        "Perecedero": 1
+}
+### {
+#     "TipoProducto": "1",
+#         "Bodega": "2",
+#         "Codigo": "Emperador",
+#         "FormaVenta": "Directa",
+#         "Costo": 450.00,
+#         "Precio": 17.00,
+#         "Nacionalidad": "Mexico",
+#         "Calidad": 5,
+#         "Perecedero": 1
+# }
 
 
 ### Getting a product
-GET {{api}}/7
+GET {{api}}/5
 
 ### Delete a product
 DELETE {{api}}/5
@@ -34,3 +61,7 @@ Content-Type: application/json
     "Description": "Gaming Laptop HP",
     "Quantity": 50
 }
+
+### All Everything
+
+GET {{api}}/todo/count
