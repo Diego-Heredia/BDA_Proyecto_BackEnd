@@ -18,15 +18,15 @@ POST {{api}}
 Content-Type: application/json
 
 {
-    "TipoProducto": "2",
-        "Bodega": "2",
-        "Codigo": "Mordisko",
-        "FormaVenta": "Directa",
-        "Costo": 450.00,
-        "Precio": 17.00,
-        "Nacionalidad": "Mexico",
-        "Calidad": "5",
-        "Perecedero": 1
+    "TipoProducto": "Galletas",
+    "Bodega": "J-124",
+    "Codigo": "Animalito",
+    "FormaVenta": "Directa",
+    "Costo": 300.00,
+    "Precio": 10.50,
+    "Nacionalidad": "Mexico",
+    "Calidad": "5",
+    "Perecedero": "1"
 }
 ### {
 #     "TipoProducto": "1",
@@ -43,6 +43,8 @@ Content-Type: application/json
 
 ### Getting a product
 GET {{api}}/5
+### Getting a user
+GET http://localhost:3000/usuarios
 
 ### Delete a product
 DELETE {{api}}/5

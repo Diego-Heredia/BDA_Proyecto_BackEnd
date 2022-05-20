@@ -71,6 +71,20 @@ export const getCompras = async (req,res)=> {
         res.send(error.message);
     }
 };
+export const getUsers = async (req,res)=> {
+    try {
+     
+        res.status(200)
+        const pool = await getConnection();
+        const result = await pool.request().query(queries.getUsers);
+        console.log(result);
+        res.json(result.recordset);
+        
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+};
 
 export const createNewProduct = async (req,res)=>{
 
@@ -84,15 +98,15 @@ export const createNewProduct = async (req,res)=>{
     try {
         const pool =await getConnection()
         pool.request()
-        .input('TipoProducto',sql.VarChar,TipoProducto)
-        .input('Bodega',sql.VarChar,Bodega)
-        .input('Codigo',sql.VarChar,Codigo)
-        .input('FormaVenta',sql.VarChar,FormaVenta)
-        .input('Costo',sql.Money,Costo)
-        .input('Precio',sql.Money,Precio)
-        .input('Nacionalidad',sql.VarChar,Nacionalidad)
-        .input('Calidad',sql.VarChar,Calidad)
-        .input('Perecedero',sql.Bit,Perecedero)
+        .input('tipoProducto',sql.VarChar,TipoProducto)
+        .input('bodega',sql.VarChar,Bodega)
+        .input('codigo',sql.VarChar,Codigo)
+        .input('formaVenta',sql.VarChar,FormaVenta)
+        .input('costo',sql.Money,Costo)
+        .input('precio',sql.Money,Precio)
+        .input('nacionalidad',sql.VarChar,Nacionalidad)
+        .input('calidad',sql.VarChar,Calidad)
+        .input('perecedero',sql.VarChar,Perecedero)
         .query(queries.addNewProduct)
         // console.log(Name, Description, Quantity);
         res.json({TipoProducto,Bodega,Codigo,FormaVenta,Costo,Precio,Nacionalidad,Calidad,Perecedero})
