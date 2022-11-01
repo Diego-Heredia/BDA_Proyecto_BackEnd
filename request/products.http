@@ -1,4 +1,4 @@
-@api = http://localhost:3000/products
+@api = http://localhost:5500/products
 
 ### Get all Products
 GET {{api}}

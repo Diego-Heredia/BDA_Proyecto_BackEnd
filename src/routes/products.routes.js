@@ -23,7 +23,7 @@ router.post('/products',createNewProduct)
 
 // router.get('/products/:id',getProductById)
 
-// router.delete('/products/:id',deleteProductById)
+router.delete('/prod-eliminar/:id',deleteProductById)
 
 // router.put('/products/:id',updateProductById)
 

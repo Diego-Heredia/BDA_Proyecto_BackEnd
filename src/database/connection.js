@@ -13,7 +13,8 @@ const dbSettings = {
          enableArithAbort : true, 
          
      },
-        port : 51688
+        // port : 51688
+        port : 1433
 }
 export async function getConnection(){
     try{
